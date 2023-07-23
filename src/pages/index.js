@@ -32,34 +32,33 @@ const Home = () => {
 const highlights = [
   {
     icon: faShieldAlt,
-    title: 'Type Safe',
+    title: '类型安全',
     description: (
       <>
-        Forget about stringly typed objects, from request to response,
-        everything has types.
+        忘记字符串类型的对象，从请求到响应，一切都有类型。
       </>
     ),
   },
   {
     icon: faBatteryFull,
-    title: 'Feature Rich',
+    title: '功能丰富',
     description: (
-      <>Actix provides a lot of features out of box. HTTP/2, logging, etc.</>
+      <>Actix 提供了大量的开箱即用的功能。Http/2，日志等。</>
     ),
   },
   {
     icon: faPuzzlePiece,
-    title: 'Extensible',
+    title: '可扩展',
     description: (
-      <>Easily create your own libraries that any Actix application can use.</>
+      <>轻松创建任何 Actix 应用可使用的扩展。</>
     ),
   },
   {
     icon: faTachometerAlt,
-    title: 'Blazingly Fast',
+    title: '极速',
     description: (
       <>
-        Actix is blazingly fast. Don't take our word for it -- <a href='https://www.techempower.com/benchmarks/#section=data-r21&hw=ph&test=fortune' target='_blank' rel='noopener noreferrer'>see for yourself!</a>
+        Actix 是相当快的。不只是说说而已 -- <a href='https://www.techempower.com/benchmarks/#section=data-r21&hw=ph&test=fortune' target='_blank' rel='noopener noreferrer'>自己来看！</a>
       </>
     ),
   },
@@ -88,7 +87,7 @@ const Hero = () => {
             className="button button--primary button--lg"
             to={useBaseUrl('docs/')}
           >
-            Get Started
+            开始使用
           </Link>
         </div>
       </div>
@@ -135,10 +134,9 @@ const Examples = () => {
       <div className={styles.example}>
         <div className={styles.exampleContent}>
           <div className={styles.featureText}>
-            <h3 className={styles.featureTitle}>Hello World!</h3>
+            <h3 className={styles.featureTitle}>你好，世界！</h3>
             <p>
-              Getting started with Actix is easy. An Actix app comes with a URL routing system that lets you match on
-              URLs and invoke individual handlers.
+              开始使用 Actix 非常简单。Actix 应用程序带有一个 URL 路由系统，让您可以匹配 URL 并调用单个处理程序。
             </p>
           </div>
           <div className={styles.example__code}>
@@ -149,11 +147,10 @@ const Examples = () => {
       <div className={styles.example}>
         <div className={styles.exampleContent}>
           <div className={styles.featureText}>
-            <h3 className={styles.featureTitle}>Flexible Responders</h3>
+            <h3 className={styles.featureTitle}>灵活的响应</h3>
             <p>
-              Handler functions in Actix can return a wide range of objects that
-              implement the <code>Responder</code> trait. This makes it a breeze
-              to return consistent responses from your APIs.
+              Actix 的处理函数可以返回实现 <code>Responder</code> trait 的各种对象。
+              这使得从 API 返回一致的响应变得轻而易举。
             </p>
           </div>
           <div className={styles.example__code}>
@@ -167,13 +164,10 @@ const Examples = () => {
       <div className={styles.example}>
         <div className={styles.exampleContent}>
           <div className={styles.featureText}>
-            <h3 className={styles.featureTitle}>Powerful Extractors</h3>
+            <h3 className={styles.featureTitle}>功能强大的提取器</h3>
             <p>
-              Actix comes with a powerful extractor system that extracts data from
-              the incoming HTTP request and passes it to your view functions. Not
-              only does this make for a convenient API but it also means that your
-              view functions can be synchronous code and still benefit from
-              asynchronous IO handling.
+              Actix 带来了一个强大的提取器系统，它从传入的 HTTP 请求中提取数据并将其传递给您的视图函数。
+              这不仅使得 API 方便，而且还意味着您的视图函数可以是同步代码，并且仍然可以从异步 IO 处理中受益。
             </p>
           </div>
           <div className={styles.example__code}>
@@ -187,10 +181,9 @@ const Examples = () => {
       <div className={styles.example}>
         <div className={styles.exampleContent}>
           <div className={styles.featureText}>
-            <h3 className={styles.featureTitle}>Easy Form Handling</h3>
+            <h3 className={styles.featureTitle}>轻松的表单处理</h3>
             <p>
-              Handling JSON or URL-encoded form data is easy. Just define a
-              structure that can be deserialized and Actix will handle the rest.
+              处理 JSON 或 URL 编码的表单数据很容易。只需定义一个可以反序列化的结构，Actix 将处理其余部分。
             </p>
           </div>
           <div className={styles.example__code}>

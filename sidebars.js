@@ -1,7 +1,7 @@
 module.exports = {
   docs: {
-    Introduction: ['welcome', 'whatis'],
-    Basics: [
+    '简介': ['welcome', 'whatis'],
+    '基础': [
       'getting-started',
       'application',
       'server',

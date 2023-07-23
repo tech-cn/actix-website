@@ -1,9 +1,9 @@
 ---
-title: What is Actix Web
+title: Actix Web 是什么
 ---
 import { rustVersion } from "@site/vars";
 
-# Actix Web is part of an Ecosystem of Crates
+# Actix Web 是 Crates 生态系统的一部分
 
 Long ago, Actix Web was built on top of the `actix` actor framework. Now, Actix Web is largely unrelated to the actor framework and is built using a different system. Though `actix` is still maintained, its usefulness as a general tool is diminishing as the futures and async/await ecosystem matures. At this time, the use of `actix` is only required for WebSocket endpoints.
 

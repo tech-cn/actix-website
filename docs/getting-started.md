@@ -1,29 +1,29 @@
 ---
-title: Getting Started
+title: 开始使用
 ---
 
 import RenderCodeBlock from '@theme/CodeBlock';
 import CodeBlock from "@site/src/components/code_block.js";
 import { rustVersion, actixWebMajorVersion } from "@site/vars";
 
-## Installing Rust
+## 安装 Rust
 
-If you don't have Rust yet, we recommend you use `rustup` to manage your Rust installation. The [official rust guide][rustguide] has a wonderful section on getting started.
+如果你还没有安装 Rust，我们建议你使用 `rustup` 来管理你的 Rust 安装。[官方 Rust 指南][rustguide] 有一个很好的入门。
 
 <p>
-Actix Web currently has a minimum supported Rust version (MSRV) of { rustVersion }. Running <code>rustup update</code> will ensure you have the latest and greatest Rust version available. As such, this guide assumes you are running Rust { rustVersion } or later.
+Axtix Web 目前支持的最低 Rust 版本是 { rustVersion }。运行 <code>rustup update</code> 将确保你拥有最新的 Rust 版本。因此，本指南假设你运行的是 Rust { rustVersion } 或更高版本。
 </p>
 
 ## Hello, world!
 
-Start by creating a new binary-based Cargo project and changing into the new directory:
+首先，创建一个新的二进制 Cargo 项目并切换到新目录：
 
 ```bash
 cargo new hello-world
 cd hello-world
 ```
 
-Add `actix-web` as a dependency of your project by adding the following to your `Cargo.toml` file.
+接下来，将 `actix-web` 添加到你的项目依赖中，只需要在 `Cargo.toml` 文件中添加以下内容即可。
 
 
 <!-- DEPENDENCY -->
@@ -33,21 +33,21 @@ Add `actix-web` as a dependency of your project by adding the following to your 
 actix-web = "${actixWebMajorVersion}"`}
 </RenderCodeBlock>
 
-Request handlers use async functions that accept zero or more parameters. These parameters can be extracted from a request (see `FromRequest` trait) and returns a type that can be converted into an `HttpResponse` (see `Responder` trait):
+处理请求使用零个或多个参数的异步函数。这些参数可以从请求中提取出来（参见 `FromRequest` trait），并返回一个可以转换为 `HttpResponse` 的类型（参见 `Responder` trait）：
 
-Replace the contents of `src/main.rs` with the following:
+将 `src/main.rs` 的内容替换如下：
 
 <CodeBlock example="getting-started" section="handlers" />
 
-Notice that some of these handlers have routing information attached directly using the built-in macros. These allow you to specify the method and path that the handler should respond to. You will see below how to register `manual_hello` (i.e. routes that do not use a routing macro).
+注意，其中一些处理器直接使用内置的宏附加了路由信息。这允许你指定处理器应该响应的方法和路径。在下面你将看到如何注册 `manual_hello`（也就是不使用路由宏的路由）。
 
-Next, create an `App` instance and register the request handlers. Use `App::service` for the handlers using routing macros and `App::route` for manually routed handlers, declaring the path and method. Finally, the app is started inside an `HttpServer` which will serve incoming requests using your `App` as an "application factory".
+接下来，创建一个 `App` 实例并注册请求处理器。使用 `App::service` 来处理使用路由宏的处理器，使用 `App::route` 来处理手动路由的处理器，声明路径和方法。最后，应用程序在 `HttpServer` 中启动，该服务器将使用你的 `App` 作为“应用程序工厂”来处理传入的请求。
 
-Further append the following `main` function to `src/main.rs`:
+将下面的 `main` 函数添加到 `src/main.rs` 中：
 
 <CodeBlock example="getting-started" section="main" />
 
-That's it! Compile and run the program with `cargo run`. The `#[actix_web::main]` macro executes the async main function within the actix runtime. Now you can go to `http://127.0.0.1:8080/` or any of the other routes you defined to see the results.
+就是这样！使用 `cargo run` 编译并运行程序。`#[actix_web::main]` 宏在 actix 运行时中执行异步主函数。现在你可以转到 `http://127.0.0.1:8080/` 或任何你定义的其他路由来查看结果。
 
 <!-- LINKS -->
 

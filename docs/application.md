@@ -1,40 +1,42 @@
 ---
-title: Application
+title: 应用
 ---
 
 import CodeBlock from "@site/src/components/code_block.js";
 
-# Writing an Application
+# 编写一个应用
 
-`actix-web` provides various primitives to build web servers and applications with Rust. It provides routing, middleware, pre-processing of requests, post-processing of responses, etc.
+`actix-web` 提供了各种原语来使用 Rust 构建 Web 服务器和应用。它提供路由、中间件、请求预处理、响应后处理等功能。
 
-All `actix-web` servers are built around the [`App`][app] instance. It is used for registering routes for resources and middleware. It also stores application state shared across all handlers within the same scope.
+所有的 `actix-web` 服务都是围绕 [`App`][app] 实例构建的。它用于注册路由和中间件。在同一作用域内，还可以存储所有处理程序之间共享的状态或变量。
 
-An application's [`scope`][scope] acts as a namespace for all routes, i.e. all routes for a specific application scope have the same url path prefix. The application prefix always contains a leading "/" slash. If a supplied prefix does not contain leading slash, it is automatically inserted. The prefix should consist of value path segments.
+一个应用的 [`scope`][作用域] 是所有路由的命名空间，也就是说，特定应用作用域的所有路由都有相同的 url 路径前缀。应用的路由的路径前缀始终包含一个前导 "/" 斜杠。如果提供的前缀不包含前导斜杠，则会自动插入。前缀应该由值路径段组成。
 
-> For an application with scope `/app`, any request with the paths `/app`, `/app/`, or `/app/test` would match; however, the path `/application` would not match.
+> 对于作用域 `/app` 的应用，任何路径为 `/app`、`/app/` 或 `/app/test` 的请求都会匹配；但是，路径 `/application` 不会匹配。
 
 <CodeBlock example="application" file="app.rs" section="setup" />
 
-In this example, an application with the `/app` prefix and an `index.html` resource is created. This resource is available through the `/app/index.html` url.
+在这个例子中，创建了一个带有 `/app` 前缀和 `index.html` 资源的应用。这个资源可以通过 `/app/index.html` url 访问。
 
-> For more information, check the [URL Dispatch][usingappprefix] section.
+> 要获得更多信息，可以查看 [URL Dispatch][usingappprefix] 章节。
 
-## State
+## 状态
 
-Application state is shared with all routes and resources within the same scope. State can be accessed with the [`web::Data<T>`][data] extractor where `T` is the type of the state. State is also accessible for middleware.
+应用状态是应用内所有路由和资源共享的。状态可以通过 [`web::Data<T>`][data] 提取器访问，其中 `T` 是状态的类型。状态也可以被中间件访问。
 
-Let's write a simple application and store the application name in the state:
+让我们编写一个简单的应用，并将应用名称存储在状态中：
 
 <CodeBlock example="application" file="state.rs" section="setup" />
 
-Next, pass in the state when initializing the App and start the application:
+接下来，当初始化应用时，将状态传递给应用并启动应用：
 
 <CodeBlock example="application" file="state.rs" section="start_app" />
 
-Any number of state types could be registered within the application.
+可在应用中创建任意数量的状态。
 
-## Shared Mutable State
+## 共享可变状态
+
+`HttpServer` 允许传递应用工厂而不是应用实例。`HttpServer` 为每个线程构造一个应用实例。因此，应用数据必须被多次构造。如果要在不同的线程之间共享数据，应该使用可共享的对象，例如 `Send` + `Sync`。
 
 `HttpServer` accepts an application factory rather than an application instance. An `HttpServer` constructs an application instance for each thread. Therefore, application data must be constructed multiple times. If you want to share data between different threads, a shareable object should be used, e.g. `Send` + `Sync`.
 
@@ -84,7 +86,7 @@ The result of the above example would be:
 /api/test -> "test"
 ```
 
-Each [`ServiceConfig`][serviceconfig] can have its own `data`, `routes`, and `services`.
+每一个 [`ServiceConfig`][serviceconfig] 都可以有自己的 `data`、`routes` 和 `services`。
 
 <!-- LINKS -->
 

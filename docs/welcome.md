@@ -1,14 +1,14 @@
 ---
-title: Welcome
+title: 欢迎使用
 description: Guiding you through building web apps with Actix
 slug: /
 ---
 
-# Welcome to Actix
+# 欢迎使用 Axtix
 
-Actix Web lets you quickly and confidently develop web services in Rust and this guide will get you going in no time.
+Axtix Web 让你可以快速自信地使用 Rust 开发 Web 服务，本指南将帮助你快速上手。
 
-The documentation on this website focuses primarily on the Actix Web framework. For information about the actor framework called Actix, check out the [Actix chapter][actix-chapter] (or the lower level [actix API docs][actix-docs]). Otherwise, head on to the [getting started guide][getting-started]. If you already know your way around and you need specific information you might want to read the [actix-web API docs][actix-web-docs].
+该文档主要介绍 Axtix Web 框架。关于 Actix 框架的信息，请查看 [Actix 章节][actix-chapter]（或者更底层的 [actix API 文档][actix-docs]）。否则，请继续阅读 [快速入门指南][getting-started]。如果你已经熟悉了，需要特定的信息，你可能需要阅读 [actix-web API 文档][actix-web-docs]。
 
 [getting-started]: https://actix.rs/docs/getting-started
 [actix-web-docs]: https://docs.rs/actix-web

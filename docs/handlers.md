@@ -1,20 +1,20 @@
 ---
-title: Handlers
+title: 处理器
 ---
 
 import CodeBlock from "@site/src/components/code_block.js";
 
-# Request Handlers
+# 请求处理
 
-A request handler is an async function that accepts zero or more parameters that can be extracted from a request (i.e., [_impl FromRequest_][implfromrequest]) and returns a type that can be converted into an HttpResponse (i.e., [_impl Responder_][respondertrait]).
+一个请求处理函数是一个异步函数，它接受零个或多个参数，这些参数可以从请求中提取出来（即 [_impl FromRequest_][implfromrequest]），并返回一个可以转换为 HttpResponse 的类型（即 [_impl Responder_][respondertrait]）。
 
-Request handling happens in two stages. First the handler object is called, returning any object that implements the [_Responder_][respondertrait] trait. Then, `respond_to()` is called on the returned object, converting itself to a `HttpResponse` or `Error`.
+请求处理将会发生两个阶段。首先调用处理函数，返回任何实现了 [_Responder_][respondertrait] 特质的对象。然后，在返回的对象上调用 `respond_to()`，将其转换为 `HttpResponse` 或 `Error`。
 
-By default actix-web provides `Responder` implementations for some standard types, such as `&'static str`, `String`, etc.
+默认 actix-web 为一些标准类型提供了 `Responder` 实现，例如 `&'static str`、`String` 等。
 
-> For a complete list of implementations, check the [_Responder documentation_][responderimpls].
+> 有关实现的完整列表，请查看 [_Responder 文档_][responderimpls]。
 
-Examples of valid handlers:
+处理函数的一些例子：
 
 ```rust
 async fn index(_req: HttpRequest) -> &'static str {
