@@ -1,5 +1,5 @@
 ---
-title: 处理器
+title: 请求处理
 ---
 
 import CodeBlock from "@site/src/components/code_block.js";
@@ -28,7 +28,7 @@ async fn index(_req: HttpRequest) -> String {
 }
 ```
 
-You can also change the signature to return `impl Responder` which works well if more complex types are involved.
+你也可以将函数改为返回 `impl Responder`，如果涉及到更复杂的类型，这种方式也很好用。
 
 ```rust
 async fn index(_req: HttpRequest) -> impl Responder {
@@ -42,25 +42,25 @@ async fn index(req: HttpRequest) -> Box<Future<Item=HttpResponse, Error=Error>> 
 }
 ```
 
-## Response with custom type
+## 使用自定义类型响应
 
-To return a custom type directly from a handler function, the type needs to implement the `Responder` trait.
+要直接从处理函数返回自定义类型，该类型需要实现 `Responder` 特质。
 
-Let's create a response for a custom type that serializes to an `application/json` response:
+让我们创建一个响应内容为 `application/json` 的自定义类型响应：
 
 <CodeBlock example="responder-trait" file="main.rs" section="responder-trait" />
 
-## Streaming response body
+## 流式响应体
 
-Response body can be generated asynchronously. In this case, body must implement the stream trait `Stream<Item=Bytes, Error=Error>`, i.e.:
+响应体可以异步生成。在这个例子中，响应体必须实现特质 `Stream<Item=Bytes, Error=Error>`，即：
 
 <CodeBlock example="async-handlers" file="stream.rs" section="stream" />
 
-## Different return types (Either)
+## 不同的返回类型（Either）
 
-Sometimes, you need to return different types of responses. For example, you can error check and return errors, return async responses, or any result that requires two different types.
+有时，你需要返回不同类型的响应。例如，你可以对错误进行检查并返回错误，返回异步响应，或者任何需要两种不同类型的结果的情况。
 
-For this case, the [Either][either] type can be used. `Either` allows combining two different responder types into a single type.
+在下面的例子中，返回 [Either][either] 类型。`Either` 允许将两种不同的响应类型组合成一个类型。
 
 <CodeBlock example="either" file="main.rs" section="either" />
 

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkactix_website=self.webpackChunkactix_website||[]).push([[6220],{6220:(e,s,t)=>{t.r(s),t.d(s,{default:()=>n});const n="pub mod stream;\n\nfn main() {}\n"}}]);

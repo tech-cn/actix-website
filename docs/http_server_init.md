@@ -1,10 +1,10 @@
 ---
-title: HTTP Server Initialization
+title: HTTP 服务初始化
 ---
 
-# Architecture overview
+# 概述
 
-Below is a diagram of HttpServer initialization, which happens on the following code
+下面的图是 HttpServer 初始化的过程，这个过程发生在下面的代码中
 
 ```rust
 #[actix_web::main]

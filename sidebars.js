@@ -8,7 +8,7 @@ module.exports = {
       'extractors',
       'handlers',
     ],
-    Advanced: [
+    '进阶': [
       'errors',
       'url-dispatch',
       'request',
@@ -17,9 +17,9 @@ module.exports = {
       'middleware',
       'static-files',
     ],
-    Protocols: ['websockets', 'http2'],
+    '协议': ['websockets', 'http2'],
     Patterns: ['autoreload', 'databases'],
-    Diagrams: ['http_server_init', 'conn_lifecycle'],
+    '图解': ['http_server_init', 'conn_lifecycle'],
     Actix: [
       'actix/sec-0-quick-start',
       'actix/sec-1-getting-started',
@@ -29,7 +29,7 @@ module.exports = {
       'actix/sec-5-arbiter',
       'actix/sec-6-sync-arbiter',
     ],
-    'API Documentation': [
+    'API 文档': [
       {
         type: 'link',
         label: 'actix',

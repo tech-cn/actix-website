@@ -1,17 +1,17 @@
 ---
-title: Auto-Reloading
+title: 自动重载
 ---
 
-# Auto-Reloading Development Server
+# 自动重载开发服务器
 
-During development it can be very handy to have cargo automatically recompile the code on changes. This can be accomplished very easily by using [`cargo-watch`].
+在开发时，让 cargo 自动重新编译改变的代码是非常方便的。这可以通过 [`cargo-watch`] 来轻易实现。
 
 ```sh
  cargo watch -x run
  ```
 
-## Historical Note
+## 历史说明
 
-An old version of this page recommended using a combination of systemfd and listenfd, but this has many gotchas and was difficult to integrate properly, especially when part of a broader development workflow. We consider [`cargo-watch`] to be sufficient for auto-reloading purposes.
+在旧版本中，我们推荐使用 `systemfd` 和 `listenfd` 的组合，但是这有很多陷阱，而且很难正确集成，特别是在更广泛的开发工作流中。我们认为 [`cargo-watch`] 对于自动重载的目的来说已经足够了。
 
 [`cargo-watch`]: https://github.com/passcod/cargo-watch

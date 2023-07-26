@@ -1,12 +1,12 @@
 ---
-title: Community
+title: 社区
 description: The best things in life are to be shared
 ---
 
-# Join us
+# 加入我们
 
-Want to talk to others about questions? The Actix Web [Discord server](https://discord.gg/NWpN5mmg3x) is the best starting point. We also have a [Gitter room](https://gitter.im/actix/actix-web).
+想要和其他人讨论问题吗？Actix Web [Discord 服务器](https://discord.gg/NWpN5mmg3x) 是最好的起点。我们也有一个 [Gitter room](https://gitter.im/actix/actix-web)。
 
-If you think you found a bug it's best to file an issue directly on the repo. [actix/actix-web](https://github.com/actix/actix-web) for the web framework. [actix/actix](https://github.com/actix/actix) for issues with the actor framework
+如果你发现了一个 bug，最好直接在仓库上提交一个 issue。[actix/actix-web](https://github.com/actix/actix-web) 是 web 框架的仓库。[actix/actix](https://github.com/actix/actix) 是 actor 框架的仓库。
 
-We're a welcoming community so don't be afraid to engage. Interactions are [governed by our code of conduct](/community/coc).
+我们是一个友好的社区，所以不要害怕参与讨论。交流遵循我们的[行为准则](/community/coc)。

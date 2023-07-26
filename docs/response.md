@@ -1,24 +1,24 @@
 ---
-title: Responses
+title: 响应
 ---
 
 import CodeBlock from "@site/src/components/code_block.js";
 
-# Response
+# 响应
 
-A builder-like pattern is used to construct an instance of `HttpResponse`. `HttpResponse` provides several methods that return a `HttpResponseBuilder` instance, which implements various convenience methods for building responses.
+使用类似构建器模式来构建 `HttpResponse` 实例。`HttpResponse` 提供了几种用于构建响应的便捷方法，这些方法首先会返回 `HttpResponseBuilder` 实例。
 
-> Check the [documentation][responsebuilder] for type descriptions.
+> 查看 [文档][responsebuilder] 了解更多说明。
 
-The methods `.body`, `.finish`, and `.json` finalize response creation and return a constructed _HttpResponse_ instance. If this methods is called on the same builder instance multiple times, the builder will panic.
+使用 `.body`，`.finish`， 和 `.json` 方法来构建 _HttpResponse_ 实例。如果这些方法在构建器上被多次调用，构建器会触发 panic。
 
 <CodeBlock example="responses" file="main.rs" section="builder" />
 
-## JSON Response
+## JSON 格式的响应
 
-The `Json` type allows to respond with well-formed JSON data: simply return a value of type `Json<T>` where `T` is the type of a structure to serialize into _JSON_. The type `T` must implement the `Serialize` trait from _serde_.
+`Json` 类型的响应返回格式良好的 JSON数据：只需返回一个 `Json<T>` 类型的值，其中泛型 `T` 是可以序列化为 _JSON_ 的结构体。泛型 `T` 必须实现了 _serde_ 的 `Serialize` 特质。
 
-For the following example to work, you need to add `serde` to your dependencies in `Cargo.toml`:
+要使下面的示例生肖，需要在 `Cargo.toml` 中添加将 `serde` 依赖：
 
 ```toml
 [dependencies]
@@ -27,26 +27,26 @@ serde = { version = "1.0", features = ["derive"] }
 
 <CodeBlock example="responses" file="json_resp.rs" section="json-resp" />
 
-Using the `Json` type this way instead of calling the `.json` method on a `HttpResponse` makes it immediately clear that the function returns JSON and not any other type of response.
+再处理函数上返回 `Json` 作为返回值，而不是调用 `HttpResponse` 的方法 `.json`，会更容易明白该请求返回的是 JSON 格式的数据，而不是其他类型。
 
-## Content encoding
+## 响应内容编码
 
-Actix Web can automatically _compress_ payloads with the [_Compress middleware_][compressmidddleware]. The following codecs are supported:
+Actix Web 使用 [_Compress middleware_][compressmidddleware] 自动压缩响应体。支持以下编解码器：
 
 - Brotli
 - Gzip
 - Deflate
 - Identity
 
-A response's `Content-Encoding` header defaults to `ContentEncoding::Auto`, which performs automatic content compression negotiation based on the request's `Accept-Encoding` header.
+响应头中 `Content-Encoding` 的值默认为 `ContentEncoding::Auto`，它会根据请求头中的 `Accept-Encoding` 来自动选择压缩方式。
 
 <CodeBlock example="responses" file="auto.rs" section="auto" />
 
-Explicitly disable content compression on a handler by setting `Content-Encoding` to an `Identity` value:
+将 `Content-Encoding` 的值设置为 `Identity`，明确禁用响应内容压缩：
 
 <CodeBlock example="responses" file="identity.rs" section="identity" />
 
-When dealing with an already compressed body (for example, when serving pre-compressed assets), set the `Content-Encoding` header on the response manually to bypass the middleware:
+当处理已经被压缩的内容时（例如，预压缩的资源），需要手动设置 `Content-Encoding` 头来绕过中间件：
 
 <CodeBlock example="responses" file="identity_two.rs" section="identity-two" />
 
