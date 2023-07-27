@@ -4,7 +4,7 @@ module.exports = {
   title: 'Actix',
   tagline: 'Actix Web 是一个功能强大、实用、极速的 Rust Web 框架',
   url: 'https://tech-cn.github.io',
-  baseUrl: '/',
+  baseUrl: '/actix-website',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo.png',
