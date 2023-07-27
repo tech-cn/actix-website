@@ -9,7 +9,7 @@ module.exports = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo.png',
   organizationName: 'tech-cn', // Usually your GitHub org/user name.
-  projectName: 'actix-web', // Usually your repo name.
+  projectName: 'actix-website', // Usually your repo name.
   deploymentBranch: 'deploy-cn',
   themeConfig: {
     navbar: {
