@@ -3,13 +3,14 @@ const path = require('path');
 module.exports = {
   title: 'Actix',
   tagline: 'Actix Web 是一个功能强大、实用、极速的 Rust Web 框架',
-  url: 'https://actix.rs',
+  url: 'https://tech-cn.github.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo.png',
-  organizationName: 'actix', // Usually your GitHub org/user name.
+  organizationName: 'tech-cn', // Usually your GitHub org/user name.
   projectName: 'actix-web', // Usually your repo name.
+  deploymentBranch: 'deploy-cn',
   themeConfig: {
     navbar: {
       title: 'Actix',
